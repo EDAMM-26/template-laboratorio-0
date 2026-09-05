@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica0 – EDAMM Setup</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <span class="badge">EDAMM · Práctica 0 · MUTAV UPV</span>
+
+    <div class="avatar">🎓</div>
+
+    <h1 id="display-name">Nombre Apellido</h1>
+    <p class="subtitle">Configuración inicial del entorno de desarrollo</p>
+
+    <div class="info">
+      <div class="info-row">
+        <span class="info-icon">👤</span>
+        <div>
+          <span class="info-label">Estudiante</span>
+          <span class="info-value" id="info-name">—</span>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">✉️</span>
+        <div>
+          <span class="info-label">Correo</span>
+          <span class="info-value" id="info-email">—</span>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">🐙</span>
+        <div>
+          <span class="info-label">GitHub</span>
+          <span class="info-value" id="info-github">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="status" id="status">
+      <span class="status-dot"></span>
+      <span id="status-msg">Comprobando configuración…</span>
+    </div>
+  </div>
+
+  <!-- student.js define: STUDENT_NAME, STUDENT_EMAIL, GITHUB_USER -->
+  <script src="student.js"></script>
+  <script>
+    const defaults = {
+      name:  "Nombre Apellido",
+      email: "usuario@etsit.upv.es",
+      user:  "tu-usuario-github"
+    };
+
+    const name   = typeof STUDENT_NAME  !== 'undefined' ? STUDENT_NAME  : defaults.name;
+    const email  = typeof STUDENT_EMAIL !== 'undefined' ? STUDENT_EMAIL : defaults.email;
+    const github = typeof GITHUB_USER   !== 'undefined' ? GITHUB_USER   : defaults.user;
+
+    document.getElementById('display-name').textContent = name;
+    document.getElementById('info-name').textContent    = name;
+    document.getElementById('info-email').textContent   = email;
+    document.getElementById('info-github').textContent  = github;
+
+    // Determinar si el alumno ha rellenado sus datos
+    const filled =
+      name  !== defaults.name  &&
+      email !== defaults.email &&
+      github !== defaults.user;
+
+    const statusEl  = document.getElementById('status');
+    const statusMsg = document.getElementById('status-msg');
+
+    if (filled) {
+      statusMsg.textContent = '¡Configuración completada! Haz commit y push.';
+    } else {
+      statusEl.classList.add('warning');
+      statusMsg.textContent = 'Edita student.js con tus datos y recarga la página.';
+    }
+  </script>
+
+</body>
+</html>
