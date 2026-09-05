@@ -1,6 +1,6 @@
-# P0 – Configuración del Entorno · EDAMM 2026-27
+# Práctica 0 – Configuración del Entorno · EDAMM 2026-27
 
-> **Asignatura:** Entornos para desarrollo de aplicaciones multimedia multiplataforma  
+> **Asignatura:** Entornos para Desarrollo de Aplicaciones Multimedia Multiplataforma  
 > **Titulación:** Máster en Tecnologías Audiovisuales · ETSI de Telecomunicación · UPV
 
 ---
